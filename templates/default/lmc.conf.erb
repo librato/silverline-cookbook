@@ -1,0 +1,11 @@
+##
+## lmc.conf - Silverline CLI (lmc) configuration file
+##
+#
+
+# Email address used to identify your account when communicating with
+# the Librato Silverline Service.
+#
+<%- if @email %>
+SL_EMAIL_ADDRESS="<%= @email %>"
+<%- end %>
