@@ -1,5 +1,5 @@
 maintainer        "Librato, Inc."
-maintainer_email  "info@librato.com"
+maintainer_email  "silverline@librato.com"
 license           "Apache 2.0"
 description       "Installs/Configures Librato Silverline"
 version           "0.0.1"
