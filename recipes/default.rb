@@ -10,9 +10,13 @@ apt_repository "librato" do
   uri "http://apt.librato.com/ubuntu"
   distribution node['lsb']['codename']
   components ["non-free"]
-  keyserver "http://apt.librato.com/packages.librato.key"
+  key "http://apt.librato.com/packages.librato.key"
   notifies :run, "execute[apt-get update]", :immediately
   action :add
+end
+
+apt_package "librato-silverline" do
+  action :install
 end
 
 template "/etc/load_manager/lmd.conf" do
