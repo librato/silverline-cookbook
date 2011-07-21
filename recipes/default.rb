@@ -1,10 +1,10 @@
 include_recipe 'apt'
 
-# cookbook_file '/etc/update-motd.d/50-landscape-sysinfo' do
-#   owner 'root'
-#   group 'root'
-#   mode '600'
-# end
+cookbook_file '/etc/update-motd.d/50-landscape-sysinfo' do
+  owner 'root'
+  group 'root'
+  mode '755'
+end
 
 apt_repository "librato" do
   uri "http://apt.librato.com/ubuntu"
