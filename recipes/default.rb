@@ -19,6 +19,11 @@ apt_package "librato-silverline" do
   action :install
 end
 
+service 'silverline' do
+  provider Chef::Provider::Service::Upstart
+  action [:enable, :start]
+end
+
 template "/etc/load_manager/lmd.conf" do
   source 'lmd.conf.erb'
   owner 'root'
@@ -29,6 +34,7 @@ template "/etc/load_manager/lmd.conf" do
               :server_id_cmd => node[:silverline][:server_id_cmd],
               :template_id => node[:silverline][:template_id]
             })
+  notifies :restart, resources(:service => "silverline")
   action :create
 end
 
@@ -39,9 +45,4 @@ template "/etc/load_manager/lmc.conf" do
   mode '0600'
   variables :email => node[:silverline][:email_address]
   action :create
-end
-
-service 'silverline' do
-  provider Chef::Provider::Service::Upstart
-  action [:enable, :start]
 end
