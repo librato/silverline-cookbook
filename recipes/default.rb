@@ -39,7 +39,7 @@ template "/etc/load_manager/lmd.conf" do
 end
 
 template "/etc/load_manager/lmc.conf" do
-  source 'lmd.conf.erb'
+  source 'lmc.conf.erb'
   owner 'root'
   group 'root'
   mode '0600'
