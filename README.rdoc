@@ -18,6 +18,8 @@ node[:silverline][:server_id_cmd]
 
 node[:silverline][:template_id]
 
+node[:silverline][:component]
+
 = USAGE:
 
 Just include the default recipe.

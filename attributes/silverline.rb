@@ -20,3 +20,12 @@ default[:silverline][:server_id_cmd] = nil
 #
 default[:silverline][:template_id] = nil
 
+#
+# Component
+#
+# Default is 'non-free', to enable the beta use 'non-free-beta'.
+#
+# For beta, see:
+# http://support.silverline.librato.com/kb/advanced/enabling-the-31x-silverline-beta-release
+#
+default[:silverline][:component] = "non-free"

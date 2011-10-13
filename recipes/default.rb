@@ -9,7 +9,7 @@ end
 apt_repository "librato" do
   uri "http://apt.librato.com/ubuntu"
   distribution node['lsb']['codename']
-  components ["non-free"]
+  components [node[:silverline][:component]]
   key "http://apt.librato.com/packages.librato.key"
   notifies :run, "execute[apt-get update]", :immediately
   action :add
