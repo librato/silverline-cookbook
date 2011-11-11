@@ -11,7 +11,6 @@ apt_repository "librato" do
   distribution node['lsb']['codename']
   components [node[:silverline][:component]]
   key "http://apt.librato.com/packages.librato.key"
-  notifies :run, "execute[apt-get update]", :immediately
   action :add
 end
 
