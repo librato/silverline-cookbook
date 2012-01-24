@@ -17,7 +17,7 @@
 #
 #  By default, the service name is used as the Silverline name.
 #
-define :silverline_runit_service, :options => {}, :envdir => nil do
+define :silverline_runit_service, :options => {}, :envdir => nil, :notify => true do
   include_recipe "runit"
 
   options = params[:options]
@@ -42,7 +42,9 @@ define :silverline_runit_service, :options => {}, :envdir => nil do
       mode "0644"
       content v
       action :create
-      notifies :restart, resources(:service => params[:name])
+      if params[:notify]
+        notifies :restart, resources(:service => params[:name])
+      end
     end
   end
 end
